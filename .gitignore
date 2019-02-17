@@ -54,7 +54,7 @@ local.properties
 .classpath
 .settings/
 .loadpath
-*/persistence.xml
+*persistence.xml
 
 # External tool builders
 .externalToolBuilders/
