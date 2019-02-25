@@ -3,3 +3,5 @@
 *persistence.xml
 .settings
 .classpath
+/build/
+/target/
