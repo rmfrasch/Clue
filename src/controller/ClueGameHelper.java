@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import model.ClueGame;
 
 public class ClueGameHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("CornFields");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Clue");
 
 	// Connects to the JPA to control the database and insert a field.
 	public void newGame(ClueGame c) {
