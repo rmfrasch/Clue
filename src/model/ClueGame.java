@@ -1,12 +1,28 @@
 package model;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="clue")
+
+@Table(name="clue")
 public class ClueGame {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="game_id")
 	private int gameId;
+	@Column(name="player_number")
 	private int playerNum;
-	private int datePlayed;
+	@Column(name="date_played")
+	private LocalDate datePlayed;
 
-	public ClueGame(int gameId, int playerNum, int datePlayed) {
+	public ClueGame(int gameId, int playerNum, LocalDate datePlayed) {
 		super();
 		this.gameId = gameId;
 		this.playerNum = playerNum;
@@ -37,11 +53,11 @@ public class ClueGame {
 		this.playerNum = playerNum;
 	}
 
-	public int getDatePlayed() {
+	public LocalDate getDatePlayed() {
 		return datePlayed;
 	}
 
-	public void setDatePlayed(int datePlayed) {
+	public void setDatePlayed(LocalDate datePlayed) {
 		this.datePlayed = datePlayed;
 	}
 
