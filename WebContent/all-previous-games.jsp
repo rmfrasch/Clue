@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>View all past games</title>
 </head>
 <body>
-	<form method="post" action="ClueGameServelet">
+	<form method="post" action="viewAllGameSerlet">
 		<table>
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
 				<tr>
-					<!--  have to change to clue id -->
-					<td><input type="text" name="fieldID" value="${currentitem.fieldID}"> </td>
+					<!--  I think this will output all the games. Have to add edit, delete, and new game button here as per the teachers requirements-->
+					<td><input type="text" name="Clue Game" value="${currentitem.clueGameId}"> </td>
 					<td>${currentitem.clueGameId}</td>
 					<td>${currentitem.scarlet}</td>
 					<td>$[currentitem.mustard}</td>
