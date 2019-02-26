@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 @Table(name="clue")
 public class ClueGame {
+	//Has to be joined with the clue_clues table
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="game_id")
@@ -22,6 +23,11 @@ public class ClueGame {
 	@Column(name="date_played")
 	private LocalDate datePlayed;
 
+	/**Constructor
+	 * @param gameId
+	 * @param playerNum
+	 * @param datePlayed
+	 */
 	public ClueGame(int gameId, int playerNum, LocalDate datePlayed) {
 		super();
 		this.gameId = gameId;
@@ -29,10 +35,13 @@ public class ClueGame {
 		this.datePlayed = datePlayed;
 	}
 
+	/**No arg constructor
+	 * 
+	 */
 	public ClueGame() {
 
 	}
-
+	//Getters and Setters
 	public ClueGame(int playerNum) {
 
 	}
@@ -61,6 +70,7 @@ public class ClueGame {
 		this.datePlayed = datePlayed;
 	}
 
+	//To string
 	@Override
 	public String toString() {
 		return "ClueGame [gameId=" + gameId + ", playerNum=" + playerNum + ", datePlayed=" + datePlayed + "]";

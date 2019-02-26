@@ -12,7 +12,7 @@ import model.ClueGame;
 public class ClueGameHelper {
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("Clue");
 
-	// Connects to the JPA to control the database and insert a field.
+	// Connects to the JPA to control the database and insert a Clue Game. May need to update this to accept a 'ClueSheet' argument.
 	public void newGame(ClueGame c) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();

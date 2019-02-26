@@ -1,31 +1,94 @@
 package model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="clue_clues")
 public class ClueSheet {
+	
+	//Key
+	@Id
+	@GeneratedValue
+	@Column(name="clues_id")
+	private int clueCluesId;
+	
+	//Clue Game id -- have to figure out how to annotate this to connect with the other table.
+	private int clueGameId;
+	
 	// suspects
+	@Column(name="scarlet")
 	private String scarlet;
+	@Column(name="mustard")
 	private String mustard;
+	@Column(name="white")
 	private String white;
+	@Column(name="greem")
 	private String green;
+	@Column(name="peacock")
 	private String peacock;
+	@Column(name="plum")
 	private String plum;
 	// weapons
+	@Column(name="knife")
 	private String knife;
+	@Column(name="candlestick")
 	private String candlestick;
+	@Column(name="pipe")
 	private String pipe;
+	@Column(name="revolver")
 	private String revolver;
+	@Column(name="rope")
 	private String rope;
+	@Column(name="wrench")
 	private String wrench;
 	// rooms
+	@Column(name="ballroom")
 	private String ballroom;
+	@Column(name="kitchen")
 	private String kitchen;
+	@Column(name="ocnservatory")
 	private String conservatory;
+	@Column(name="billard")
 	private String billard;
+	@Column(name="dining")
 	private String dining;
+	@Column(name="library")
 	private String library;
+	@Column(name="hall")
 	private String hall;
+	@Column(name="study")
 	private String study;
+	@Column(name="lounge")
 	private String lounge;
 
+	
+	/** Contructor
+	 * @param scarlet
+	 * @param mustard
+	 * @param white
+	 * @param green
+	 * @param peacock
+	 * @param plum
+	 * @param knife
+	 * @param candlestick
+	 * @param pipe
+	 * @param revolver
+	 * @param rope
+	 * @param wrench
+	 * @param ballroom
+	 * @param kitchen
+	 * @param conservatory
+	 * @param billard
+	 * @param dining
+	 * @param library
+	 * @param hall
+	 * @param study
+	 * @param lounge
+	 */
 	public ClueSheet(String scarlet, String mustard, String white, String green, String peacock, String plum,
 			String knife, String candlestick, String pipe, String revolver, String rope, String wrench, String ballroom,
 			String kitchen, String conservatory, String billard, String dining, String library, String hall,
@@ -54,20 +117,15 @@ public class ClueSheet {
 		this.lounge = lounge;
 	}
 
-	@Override
-	public String toString() {
-		return "ClueSheet [scarlet=" + scarlet + ", mustard=" + mustard + ", white=" + white + ", green=" + green
-				+ ", peacock=" + peacock + ", plum=" + plum + ", knife=" + knife + ", candlestick=" + candlestick
-				+ ", pipe=" + pipe + ", revolver=" + revolver + ", rope=" + rope + ", wrench=" + wrench + ", ballroom="
-				+ ballroom + ", kitchen=" + kitchen + ", conservatory=" + conservatory + ", billard=" + billard
-				+ ", dining=" + dining + ", library=" + library + ", hall=" + hall + ", study=" + study + ", lounge="
-				+ lounge + "]";
-	}
 
+	
+	/**No arg constructor
+	 * 
+	 */
 	public ClueSheet() {
 
 	}
-
+	//Getters and Setters
 	public String getScarlet() {
 		return scarlet;
 	}
@@ -234,6 +292,17 @@ public class ClueSheet {
 
 	public void setLounge(String lounge) {
 		this.lounge = lounge;
+	}
+	
+	//To string
+	@Override
+	public String toString() {
+		return "ClueSheet [scarlet=" + scarlet + ", mustard=" + mustard + ", white=" + white + ", green=" + green
+				+ ", peacock=" + peacock + ", plum=" + plum + ", knife=" + knife + ", candlestick=" + candlestick
+				+ ", pipe=" + pipe + ", revolver=" + revolver + ", rope=" + rope + ", wrench=" + wrench + ", ballroom="
+				+ ballroom + ", kitchen=" + kitchen + ", conservatory=" + conservatory + ", billard=" + billard
+				+ ", dining=" + dining + ", library=" + library + ", hall=" + hall + ", study=" + study + ", lounge="
+				+ lounge + "]";
 	}
 
 }

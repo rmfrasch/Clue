@@ -8,12 +8,15 @@
 <br>
 <body>
 	<form action="ClueGameServlet" method="post">
-		Player Number: <select name="playerNum"> <option value=1>1</option>
+	<!-- Adds the drop-down selector -->
+		Player Number: <select name="playerNum">
+			<option value=1>1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
 			<option value="4">4</option>
-		</select> <input type="submit" value="New Game" name="newGame"> <input
-			type="submit" value="View all prevoius games">
+			<!-- Creates the buttons -->
+		</select> <input type="submit" value="New Game" name="thisClicked"> <input
+			type="submit" value="View all prevoius games" name="thisClicked">
 	</form>
 	<br />
 </body>
