@@ -1,22 +1,47 @@
 package model;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="clue")
+
+@Table(name="clue")
 public class ClueGame {
-
+	//Has to be joined with the clue_clues table
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="game_id")
 	private int gameId;
+	@Column(name="player_number")
 	private int playerNum;
-	private int datePlayed;
+	@Column(name="date_played")
+	private LocalDate datePlayed;
 
-	public ClueGame(int gameId, int playerNum, int datePlayed) {
+	/**Constructor
+	 * @param gameId
+	 * @param playerNum
+	 * @param datePlayed
+	 */
+	public ClueGame(int gameId, int playerNum, LocalDate datePlayed) {
 		super();
 		this.gameId = gameId;
 		this.playerNum = playerNum;
 		this.datePlayed = datePlayed;
 	}
 
+	/**No arg constructor
+	 * 
+	 */
 	public ClueGame() {
 
 	}
-
+	//Getters and Setters
 	public ClueGame(int playerNum) {
 
 	}
@@ -37,14 +62,15 @@ public class ClueGame {
 		this.playerNum = playerNum;
 	}
 
-	public int getDatePlayed() {
+	public LocalDate getDatePlayed() {
 		return datePlayed;
 	}
 
-	public void setDatePlayed(int datePlayed) {
+	public void setDatePlayed(LocalDate datePlayed) {
 		this.datePlayed = datePlayed;
 	}
 
+	//To string
 	@Override
 	public String toString() {
 		return "ClueGame [gameId=" + gameId + ", playerNum=" + playerNum + ", datePlayed=" + datePlayed + "]";
