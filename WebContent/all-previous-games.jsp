@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,16 +8,16 @@
 <title>View all past games</title>
 </head>
 <body>
-	<form method="post" action="viewAllGameSerlet">
+	<form method="post" action="NavigationServlet">
 		<table>
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
 				<tr>
 					<!--  I think this will output all the games. Have to add edit, delete, and new game button here as per the teachers requirements-->
-					<td><input type="text" name="Clue Game" value="${currentitem.clueGameId}"> </td>
-					<td>${currentitem.clueGameId}</td>
-					<td>${currentitem.scarlet}</td>
-					<td>$[currentitem.mustard}</td>
-					<td>$[currentitem.white}</td>
+					<td><input type="radio" name="gameId" value="${currentitem.gameId}"> </td>
+					 <td>  Game ID:  ${currentitem.gameId}</td>
+					 <td>  Player Number:  ${currentitem.playerNum}</td>
+					<td>${currentitem.datePlayed}</td>
+					<!-- <td>$[currentitem.white}</td>
 					<td>$[currentitem.green}</td>
 					<td>$[currentitem.peacock}</td>
 					<td>$[currentitem.plum}</td>
@@ -34,7 +35,7 @@
 					<td>$[currentitem.library}</td>
 					<td>$[currentitem.hall}</td>
 					<td>$[currentitem.study}</td>
-					<td>$[currentitem.lounge}</td>
+					<td>$[currentitem.lounge}</td> -->
 				</tr>
 			</c:forEach>
 		</table>

@@ -1,11 +1,16 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.ClueGame;
 
 /**
  * Servlet implementation class viewAllGamesServlet.  I have not done anything with this class.
@@ -26,16 +31,22 @@ public class viewAllGamesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ClueGameHelper a = new ClueGameHelper();
+		
+		request.setAttribute("allItems",  a.showAllGames());
+		if(a.showAllGames().isEmpty()) {
+			request.setAttribute("allItems", " ");
+		}
+		
+		getServletContext().getRequestDispatcher("/all-previous-games.jsp").forward(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 
 }

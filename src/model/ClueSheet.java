@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +18,10 @@ public class ClueSheet {
 	@Column(name="clues_id")
 	private int clueCluesId;
 	
-	//Clue Game id -- have to figure out how to annotate this to connect with the other table.
-	private int clueGameId;
+	
+	@ManyToOne
+	@JoinColumn(name="clue_game_id")
+	private ClueGame cs;
 	
 	// suspects
 	@Column(name="scarlet")

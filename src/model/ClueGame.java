@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="clue")
@@ -22,7 +25,8 @@ public class ClueGame {
 	private int playerNum;
 	@Column(name="date_played")
 	private LocalDate datePlayed;
-
+	
+	
 	/**Constructor
 	 * @param gameId
 	 * @param playerNum
@@ -32,7 +36,6 @@ public class ClueGame {
 		super();
 		this.gameId = gameId;
 		this.playerNum = playerNum;
-		this.datePlayed = datePlayed;
 	}
 
 	/**No arg constructor
@@ -41,11 +44,12 @@ public class ClueGame {
 	public ClueGame() {
 
 	}
-	//Getters and Setters
+	
 	public ClueGame(int playerNum) {
-
+		super();
+		this.playerNum = playerNum;
 	}
-
+	//Getters and Setters
 	public int getGameId() {
 		return gameId;
 	}
