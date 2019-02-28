@@ -18,7 +18,6 @@
 			<td><input type="checkbox" name="green" value="x"><span>Mr. Green</span></td>
 			<td><input type="checkbox" name="peacock" value="x"><span>Ms. Peacock</span></td>
 			<td><input type="checkbox" name="plum" value="x"><span>Prof. Plum</span></td>
-
 		</tr>
 	</table>
 	<h1>Rooms</h1>
