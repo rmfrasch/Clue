@@ -12,11 +12,11 @@
 		<table>
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
 				<tr>
-					<!--  I think this will output all the games. Have to add edit, delete, and new game button here as per the teachers requirements-->
-					<td><input type="radio" name="gameId" value="${currentitem.gameId}"> </td>
+
+					<td><input type="radio" name="game_id" value="${currentitem.gameId}"> </td>
 					 <td>  Game ID:  ${currentitem.gameId}</td>
 					 <td>  Player Number:  ${currentitem.playerNum}</td>
-					<td>${currentitem.datePlayed}</td>
+					<td>  Date Played:  ${currentitem.datePlayed}</td>
 					<!-- <td>$[currentitem.white}</td>
 					<td>$[currentitem.green}</td>
 					<td>$[currentitem.peacock}</td>

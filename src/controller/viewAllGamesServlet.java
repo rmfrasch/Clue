@@ -32,9 +32,9 @@ public class viewAllGamesServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ClueGameHelper a = new ClueGameHelper();
-		
-		request.setAttribute("allItems",  a.showAllGames());
-		if(a.showAllGames().isEmpty()) {
+		List<ClueGame> cgl = a.showAllGames();
+		request.setAttribute("allItems",  cgl);
+		if(cgl.isEmpty()) {
 			request.setAttribute("allItems", " ");
 		}
 		

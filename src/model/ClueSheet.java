@@ -2,26 +2,28 @@ package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="clue_clues")
 public class ClueSheet {
 	
-	//Key
 	@Id
-	@GeneratedValue
-	@Column(name="clues_id")
-	private int clueCluesId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "clues_id")
+	private int cluesId;
 	
-	
-	@ManyToOne
-	@JoinColumn(name="clue_game_id")
-	private ClueGame cs;
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "clue_game_id")
+	private ClueGame clueGame;
 	
 	// suspects
 	@Column(name="scarlet")
@@ -30,7 +32,7 @@ public class ClueSheet {
 	private String mustard;
 	@Column(name="white")
 	private String white;
-	@Column(name="greem")
+	@Column(name="green")
 	private String green;
 	@Column(name="peacock")
 	private String peacock;
@@ -54,7 +56,7 @@ public class ClueSheet {
 	private String ballroom;
 	@Column(name="kitchen")
 	private String kitchen;
-	@Column(name="ocnservatory")
+	@Column(name="conservatory")
 	private String conservatory;
 	@Column(name="billard")
 	private String billard;

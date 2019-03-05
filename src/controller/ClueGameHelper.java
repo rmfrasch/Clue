@@ -24,6 +24,7 @@ public class ClueGameHelper {
 	}
 	
 	public void completedGame(ClueSheet c) {
+		
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(c);
@@ -38,14 +39,11 @@ public class ClueGameHelper {
 	}
 	
 	// Deletes an item from the database and commits.
-		public void deleteItem(int gameId) {
+		public void deleteItem(ClueGame gameId) {
 			EntityManager em = emfactory.createEntityManager();
 			em.getTransaction().begin();
-			
-			ClueGame found = em.find(ClueGame.class, gameId);
-	
-			
-			em.remove(found);
+			gameId = em.merge(gameId);
+			em.remove(gameId);
 			em.getTransaction().commit();
 			em.close();
 		}
@@ -54,6 +52,14 @@ public class ClueGameHelper {
 			EntityManager em = emfactory.createEntityManager();
 			em.getTransaction().begin();
 			ClueGame found = em.find(ClueGame.class, gameId);
+			em.close();
+			return found;
+		}
+		
+		public ClueSheet searchForItemByGameSheetID(int gameId) {
+			EntityManager em = emfactory.createEntityManager();
+			em.getTransaction().begin();
+			ClueSheet found = em.find(ClueSheet.class, "clueCluesId");
 			em.close();
 			return found;
 		}
@@ -70,6 +76,14 @@ public class ClueGameHelper {
 		} */
 	//Updates the variable of the object and commits the changes.
 		public void updateGame(ClueGame toEdit) {
+			EntityManager em = emfactory.createEntityManager();
+			em.getTransaction().begin();
+			em.merge(toEdit);
+			em.getTransaction().commit();
+			em.close();
+		}
+		
+		public void updateSheet(ClueSheet toEdit) {
 			EntityManager em = emfactory.createEntityManager();
 			em.getTransaction().begin();
 			em.merge(toEdit);
